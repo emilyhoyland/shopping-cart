@@ -69,7 +69,8 @@ while True:
         # if selected_id equal to product's "id" attribute
         for x in products:
           if str(x["id"]) == str(selected_id): #convert to same datatype that allows them to be compared (string)
-            print(x["name"]) # ADD: PRICE in USD
+            print(x["name"] + " " + str(x["price"])) # Added price, had to convert number to string (logic from screencast)
+            #ADD: PRICE in USD
             selected_products.append(x)
         
 
@@ -82,6 +83,10 @@ print("You have purchased", len(selected_products), "products...")
 #CHECKPOINT 3: PRINTING THE RECEIPT
 
 print("now time to generate a receipt")
+
+total_price = 0
+print("TOTAL PRICE: " + str(total_price))
+
 
 
 
