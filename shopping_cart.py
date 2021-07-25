@@ -1,5 +1,7 @@
 # shopping_cart.py
 
+# from GitHub Setup:
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -41,12 +43,23 @@ def to_usd(my_price):
 
 # TODO: write some Python code here to produce the desired output
 
+# how to capture product identifiers and store them for use later
+# take captured identifiers and use them to perform calculations
+    #look up items price, assemble a runnning total, add tax 
+
+
 #CHECKPOINT 1: CAPTURING USER INPUTS
 
-selected_products = [] #okay to contain duplicates
+# Ask for user input and information capture 
+# parameter of input function is a textual message to be passed to user
+
+# Source (for input): Class + Screencast (copied from personal note-taking in Colab )
+selected_products = [] #okay to contain duplicates 
+# store results of input in variable:
 while True:
     selected_id = input("Please select a product identifier (1-20):") # waits for input before next iteration
-    print(selected_id)
+    print(selected_id) # produces a string
+    #print(type(selected_id)) # confirm data type we are working with
     if selected_id == "DONE": #make case un-senstive later
         break #stops generating the request
     else:
@@ -63,7 +76,7 @@ print("You have purchased", len(selected_products), "products...")
 
 #CHECKPOINT 2: LOOK-UP PRODUCTS
 
-
+#INFO DISPLAY/OUTPUTS
 #CHECKPOINT 3: PRINTING THE RECEIPT
 
 print("now time to generate a receipt")
@@ -71,8 +84,7 @@ print("now time to generate a receipt")
 
 
 
-
-#RECEIPT INCLUDES
+#RECEIPT INCLUDES:
 #A grocery store name of your choice
 #A grocery store phone number and/or website URL and/or address of choice
 #The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
