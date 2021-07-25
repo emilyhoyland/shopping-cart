@@ -54,38 +54,38 @@ def to_usd(my_price):
 # parameter of input function is a textual message to be passed to user
 
 # Source (for input): Class + Screencast (copied from personal note-taking in Colab )
-selected_products = [] #okay to contain duplicates 
+selected_products = [] # place to store inputs in list #okay to contain duplicates 
+print(type(selected_products))
+total_price = 0 # has to be definted before loop in order to add prices 
+
 while True:
-    # store results of input in variable:
+    # store results of input in variable: 
     selected_id = input("Please select a product identifier (1-20):") # waits for input before next iteration
     # ID is the value we want to compare with our list attributes
     print(selected_id) # produces a string
     #print(type(selected_id)) # confirm data type we are working with
     if selected_id == "DONE": # ADD: CONVERT TO LOWERCASE
         break #stops generating the request
+    #CHECKPOINT 2: LOOK-UP PRODUCTS
     else:
         # do a filtering operation
         # for each product in list
         # if selected_id equal to product's "id" attribute
         for x in products:
           if str(x["id"]) == str(selected_id): #convert to same datatype that allows them to be compared (string)
-            print(x["name"] + " " + str(x["price"])) # Added price, had to convert number to string (logic from screencast)
+            #print(x["name"] + " " + str(x["price"])) # Added price, had to convert number to string (logic from screencast)
             #ADD: PRICE in USD
+           # total_price = total_price + selected_id["price"]
             selected_products.append(x)
         
 
-print("You have purchased", len(selected_products), "products...")
-
-
-#CHECKPOINT 2: LOOK-UP PRODUCTS
-
 #INFO DISPLAY/OUTPUTS
 #CHECKPOINT 3: PRINTING THE RECEIPT
-
+print("You have purchased", len(selected_products), "products...") #count number of inputs
 print("now time to generate a receipt")
 
 total_price = 0
-print("TOTAL PRICE: " + str(total_price))
+print("TOTAL PRICE: " + str(total_price)) # ADD: FORMAT AS USD
 
 
 
