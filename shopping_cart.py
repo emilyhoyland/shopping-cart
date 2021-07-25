@@ -55,21 +55,23 @@ def to_usd(my_price):
 
 # Source (for input): Class + Screencast (copied from personal note-taking in Colab )
 selected_products = [] #okay to contain duplicates 
-# store results of input in variable:
 while True:
+    # store results of input in variable:
     selected_id = input("Please select a product identifier (1-20):") # waits for input before next iteration
+    # ID is the value we want to compare with our list attributes
     print(selected_id) # produces a string
     #print(type(selected_id)) # confirm data type we are working with
-    if selected_id == "DONE": #make case un-senstive later
+    if selected_id == "DONE": # ADD: CONVERT TO LOWERCASE
         break #stops generating the request
     else:
-        #do a filtering operation
+        # do a filtering operation
         # for each product in list
         # if selected_id equal to product's "id" attribute
         for x in products:
-          if str(x["id"]) == str(selected_id):
-            print(x["name"])
+          if str(x["id"]) == str(selected_id): #convert to same datatype that allows them to be compared (string)
+            print(x["name"]) # ADD: PRICE in USD
             selected_products.append(x)
+        
 
 print("You have purchased", len(selected_products), "products...")
 
