@@ -71,17 +71,24 @@ while True:
         # do a filtering operation
         # for each product in list
         # if selected_id equal to product's "id" attribute
-        for x in products:
-          if str(x["id"]) == str(selected_id): #convert to same datatype that allows them to be compared (string)
+ 
+        selected_products = [p for p in products if str(p["id"]) == str (selected_id)]
+        selected_products = selected_products[0]
+        print("SELECTED PRODUCT: " + selected_products["name"] + " " + str(selected_products["price"]))
+        #TO-DO: Convert to USD
+        
+        #Original work REMOVED 6/28 due to errors with recognizing integers
+        #for x in products:
+         # if str(x["id"]) == str(selected_id): #convert to same datatype that allows them to be compared (string)
             #print(x["name"] + " " + str(x["price"])) # Added price, had to convert number to string (logic from screencast)
             #ADD: PRICE in USD
-           # total_price = total_price + selected_id["price"]
-            selected_products.append(x)
+            # total_price = total_price + str(selected_id["price"])
+            # selected_products.append(x)
         
 
 #INFO DISPLAY/OUTPUTS
 #CHECKPOINT 3: PRINTING THE RECEIPT
-print("You have purchased", len(selected_products), "products...") #count number of inputs
+print("You have purchased", len(selected_products), "products...") #count number of inputs #COMMENT OUT
 print("now time to generate a receipt")
 
 total_price = 0
