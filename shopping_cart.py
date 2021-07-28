@@ -56,7 +56,7 @@ def to_usd(my_price):
 # Source (for input): Class + Screencast (copied from personal note-taking in Colab )
 selected_products = [] # place to store inputs in list #okay to contain duplicates 
 print(type(selected_products))
-total_price = 0 # has to be definted before loop in order to add prices 
+total_price = 0 # has to be defined before loop in order to add prices 
 
 while True:
     # store results of input in variable: 
@@ -74,6 +74,7 @@ while True:
  
         selected_products = [p for p in products if str(p["id"]) == str (selected_id)]
         selected_products = selected_products[0]
+        total_price = total_price + selected_products["price"]   # accumulate value of total price
         print("SELECTED PRODUCT: " + selected_products["name"] + " " + str(selected_products["price"]))
         #TO-DO: Convert to USD
         
@@ -91,7 +92,7 @@ while True:
 print("You have purchased", len(selected_products), "products...") #count number of inputs #COMMENT OUT
 print("now time to generate a receipt")
 
-total_price = 0
+
 print("TOTAL PRICE: " + str(total_price)) # ADD: FORMAT AS USD
 
 
