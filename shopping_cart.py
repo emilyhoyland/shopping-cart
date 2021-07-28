@@ -42,9 +42,8 @@ def to_usd(my_price):
 
 
 # TODO: write some Python code here to produce the desired output
-
-# how to capture product identifiers and store them for use later
-# take captured identifiers and use them to perform calculations
+    # how to capture product identifiers and store them for use later
+    # take captured identifiers and use them to perform calculations
     #look up items price, assemble a runnning total, add tax 
 
 
@@ -54,15 +53,15 @@ def to_usd(my_price):
 # parameter of input function is a textual message to be passed to user
 
 # Source (for input): Class + Screencast (copied from personal note-taking in Colab )
-selected_products = [] # place to store inputs in list #okay to contain duplicates 
-print(type(selected_products))
+purchased_products = [] # place to store inputs in list #okay to contain duplicates 
+#print(type(purchased_products))
 total_price = 0 # has to be defined before loop in order to add prices 
 
 while True:
     # store results of input in variable: 
     selected_id = input("Please select a product identifier (1-20):") # waits for input before next iteration
     # ID is the value we want to compare with our list attributes
-    print(selected_id) # produces a string
+    # print(selected_id) # produces a string
     #print(type(selected_id)) # confirm data type we are working with
     if selected_id == "DONE": # ADD: CONVERT TO LOWERCASE
         break #stops generating the request
@@ -71,13 +70,13 @@ while True:
         # do a filtering operation
         # for each product in list
         # if selected_id equal to product's "id" attribute
- 
-        selected_products = [p for p in products if str(p["id"]) == str (selected_id)]
-        selected_products = selected_products[0]
-        total_price = total_price + selected_products["price"]   # accumulate value of total price
-        print("SELECTED PRODUCT: " + selected_products["name"] + " " + str(selected_products["price"]))
-        #TO-DO: Convert to USD
-        
+        #selected_products = [p for p in products if str(p["id"]) == str (selected_id)]
+        #selected_products = selected_products[0]
+        #total_price = total_price + selected_products["price"]   # accumulate value of total price
+        #print("SELECTED PRODUCT: " + selected_products["name"] + " " + str(selected_products["price"]))
+        purchased_products.append(selected_id)
+
+         
         #Original work REMOVED 6/28 due to errors with recognizing integers
         #for x in products:
          # if str(x["id"]) == str(selected_id): #convert to same datatype that allows them to be compared (string)
@@ -85,13 +84,18 @@ while True:
             #ADD: PRICE in USD
             # total_price = total_price + str(selected_id["price"])
             # selected_products.append(x)
-        
+         
 
 #INFO DISPLAY/OUTPUTS
 #CHECKPOINT 3: PRINTING THE RECEIPT
-print("You have purchased", len(selected_products), "products...") #count number of inputs #COMMENT OUT
-print("now time to generate a receipt")
 
+#print("You have purchased", len(purchased_products), "products...") #count number of inputs #COMMENT OUT
+print("now time to generate a receipt")
+for selected_id in purchased_products:
+    selected_products = [p for p in products if str(p["id"]) == str(selected_id)]
+    selected_product = selected_products[0]
+    total_price = total_price + selected_product["price"]   # accumulate value of total price
+    print("SELECTED PRODUCT: " + selected_product["name"] + " " + str(selected_product["price"]))
 
 print("TOTAL PRICE: " + str(total_price)) # ADD: FORMAT AS USD
 
