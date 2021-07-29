@@ -95,10 +95,10 @@ for selected_id in purchased_products:
     selected_products = [p for p in products if str(p["id"]) == str(selected_id)]
     selected_product = selected_products[0]
     total_price = total_price + selected_product["price"]   # accumulate value of total price
-    print("SELECTED PRODUCT: " + selected_product["name"] + " " + str(selected_product["price"]))
+    print("+ " + selected_product["name"] + "....... " + to_usd(selected_product["price"]))
 
-def to_usd(total_price)
-print("TOTAL PRICE: " + str(total_price)) # ADD: FORMAT AS USD
+
+print("TOTAL PRICE: " + to_usd(total_price)) # ADD: FORMAT AS USD
 
 
 
