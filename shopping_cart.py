@@ -57,6 +57,13 @@ purchased_products = [] # place to store inputs in list #okay to contain duplica
 #print(type(purchased_products))
 subtotal_price = 0 # has to be defined before loop in order to add prices 
 
+#Time Source: https://www.codegrepper.com/code-examples/python/AUTO+GENERATE+TIME+IN+PYTHON+console
+from datetime import datetime
+# datetime object containing current date and time
+now = datetime.now()
+# mm/dd/YY H:M
+dt_string = now.strftime("%m/%d/%Y %H:%M")
+
 while True:
     # store results of input in variable: 
     selected_id = input("Please select a product identifier (1-20):") # waits for input before next iteration
@@ -93,7 +100,8 @@ while True:
 print("-------------------------------")
 print("STORE NAME AND ADDRESS HERE")
 print("THANK YOU FOR SHOPPING WITH US!")
-print("ADD DATE AND TIME HERE")
+print(dt_string)	
+print("-------------------------------")
 for selected_id in purchased_products:
     selected_products = [p for p in products if str(p["id"]) == str(selected_id)]
     selected_product = selected_products[0]
@@ -110,6 +118,13 @@ total_price = to_usd(subtotal_price + ny_tax)
 print("TOTAL: ", total_price)
 print("-------------------------------")
 print("PLEASE COME AGAIN SOON!")
+
+
+
+ 
+
+
+
 
 #RECEIPT INCLUDES:
 #A grocery store name of your choice
