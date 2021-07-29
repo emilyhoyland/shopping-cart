@@ -90,23 +90,26 @@ while True:
 #CHECKPOINT 3: PRINTING THE RECEIPT
 
 #print("You have purchased", len(purchased_products), "products...") #count number of inputs #COMMENT OUT
+print("-------------------------------")
+print("STORE NAME AND ADDRESS HERE")
 print("THANK YOU FOR SHOPPING WITH US!")
-#ADD DATE AND TIME
+print("ADD DATE AND TIME HERE")
 for selected_id in purchased_products:
     selected_products = [p for p in products if str(p["id"]) == str(selected_id)]
     selected_product = selected_products[0]
     subtotal_price = subtotal_price + selected_product["price"]   # accumulate value of total price
     print("+ " + selected_product["name"] + "....... " + to_usd(selected_product["price"]))
-
-
-print("SUBTOTAL: ....... " + to_usd(subtotal_price)) # ADD: FORMAT AS USD
-
+print("-------------------------------")
+print("NUMBER OF ITEMS PURCHASED:", len(purchased_products))
+print("SUBTOTAL: " + to_usd(subtotal_price)) # ADD: FORMAT AS USD
 #add tax: https://www.avalara.com/taxrates/en/state-rates/new-york.html#:~:text=The%20New%20York%20(NY)%20state,be%20as%20high%20as%208.875%25.
 ny_tax = subtotal_price * .08875
-print("NY SALES TAX: ....... ", to_usd(ny_tax))
-
+print("NY SALES TAX (8.875%): ", to_usd(ny_tax))
+print("----")
 total_price = to_usd(subtotal_price + ny_tax)
-print("TOTAL: ....... ", total_price)
+print("TOTAL: ", total_price)
+print("-------------------------------")
+print("PLEASE COME AGAIN SOON!")
 
 #RECEIPT INCLUDES:
 #A grocery store name of your choice
