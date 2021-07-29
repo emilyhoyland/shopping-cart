@@ -55,7 +55,7 @@ def to_usd(my_price):
 # Source (for input): Class + Screencast (copied from personal note-taking in Colab )
 purchased_products = [] # place to store inputs in list #okay to contain duplicates 
 #print(type(purchased_products))
-total_price = 0 # has to be defined before loop in order to add prices 
+subtotal_price = 0 # has to be defined before loop in order to add prices 
 
 while True:
     # store results of input in variable: 
@@ -90,19 +90,21 @@ while True:
 #CHECKPOINT 3: PRINTING THE RECEIPT
 
 #print("You have purchased", len(purchased_products), "products...") #count number of inputs #COMMENT OUT
-print("now time to generate a receipt")
+print("THANK YOU FOR SHOPPING WITH US!")
+#ADD DATE AND TIME
 for selected_id in purchased_products:
     selected_products = [p for p in products if str(p["id"]) == str(selected_id)]
     selected_product = selected_products[0]
-    total_price = total_price + selected_product["price"]   # accumulate value of total price
+    subtotal_price = subtotal_price + selected_product["price"]   # accumulate value of total price
     print("+ " + selected_product["name"] + "....... " + to_usd(selected_product["price"]))
 
 
-print("TOTAL PRICE: " + to_usd(total_price)) # ADD: FORMAT AS USD
+print("SUBTOTAL: " + to_usd(subtotal_price)) # ADD: FORMAT AS USD
 
+#add tax: https://www.avalara.com/taxrates/en/state-rates/new-york.html#:~:text=The%20New%20York%20(NY)%20state,be%20as%20high%20as%208.875%25.
 
-
-
+total_price = subtotal_price + (subtotal_price * .08875)
+print(to_usd(total_price))
 
 #RECEIPT INCLUDES:
 #A grocery store name of your choice
