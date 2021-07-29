@@ -38,8 +38,6 @@ def to_usd(my_price):
     """
     return f"${my_price:,.2f}" #> $12,000.71
 
-    #print(products)
-
 
 # TODO: write some Python code here to produce the desired output
     # how to capture product identifiers and store them for use later
@@ -74,25 +72,9 @@ while True:
         break #stops generating the request
     #CHECKPOINT 2: LOOK-UP PRODUCTS
     else:
-        # do a filtering operation
-        # for each product in list
-        # if selected_id equal to product's "id" attribute
-        #selected_products = [p for p in products if str(p["id"]) == str (selected_id)]
-        #selected_products = selected_products[0]
-        #total_price = total_price + selected_products["price"]   # accumulate value of total price
-        #print("SELECTED PRODUCT: " + selected_products["name"] + " " + str(selected_products["price"]))
         purchased_products.append(selected_id)
 
-         
-        #Original work REMOVED 6/28 due to errors with recognizing integers
-        #for x in products:
-         # if str(x["id"]) == str(selected_id): #convert to same datatype that allows them to be compared (string)
-            #print(x["name"] + " " + str(x["price"])) # Added price, had to convert number to string (logic from screencast)
-            #ADD: PRICE in USD
-            # total_price = total_price + str(selected_id["price"])
-            # selected_products.append(x)
-         
-
+        
 #INFO DISPLAY/OUTPUTS
 #CHECKPOINT 3: PRINTING THE RECEIPT
 
@@ -120,21 +102,15 @@ print("-------------------------------")
 print("PLEASE COME AGAIN SOON!")
 
 
-
- 
-
-
-
-
 #RECEIPT INCLUDES:
-#A grocery store name of your choice
+#A grocery store name of your choice 
 #A grocery store phone number and/or website URL and/or address of choice
-#The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
-#The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $3.50, etc.)
-#The total cost of all shopping cart items (i.e. the "subtotal"), formatted as US dollars and cents (e.g. $19.47), calculated as the sum of their prices
-#The amount of tax owed (e.g. $1.70), calculated by multiplying the total cost by a New York City sales tax rate of 8.75% (for the purposes of this project, groceries are not exempt from sales tax)
-#The total amount owed, formatted as US dollars and cents (e.g. $21.17), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items
-#A friendly message thanking the customer and/or encouraging the customer to shop again
+#**The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
+#**The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $3.50, etc.)
+#**The total cost of all shopping cart items (i.e. the "subtotal"), formatted as US dollars and cents (e.g. $19.47), calculated as the sum of their prices
+#**The amount of tax owed (e.g. $1.70), calculated by multiplying the total cost by a New York City sales tax rate of 8.75% (for the purposes of this project, groceries are not exempt from sales tax)
+#**The total amount owed, formatted as US dollars and cents (e.g. $21.17), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items
+#**A friendly message thanking the customer and/or encouraging the customer to shop again
 
 
 
