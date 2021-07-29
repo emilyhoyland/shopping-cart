@@ -99,12 +99,14 @@ for selected_id in purchased_products:
     print("+ " + selected_product["name"] + "....... " + to_usd(selected_product["price"]))
 
 
-print("SUBTOTAL: " + to_usd(subtotal_price)) # ADD: FORMAT AS USD
+print("SUBTOTAL: ....... " + to_usd(subtotal_price)) # ADD: FORMAT AS USD
 
 #add tax: https://www.avalara.com/taxrates/en/state-rates/new-york.html#:~:text=The%20New%20York%20(NY)%20state,be%20as%20high%20as%208.875%25.
+ny_tax = subtotal_price * .08875
+print("NY SALES TAX: ....... ", to_usd(ny_tax))
 
-total_price = subtotal_price + (subtotal_price * .08875)
-print(to_usd(total_price))
+total_price = to_usd(subtotal_price + ny_tax)
+print("TOTAL: ....... ", total_price)
 
 #RECEIPT INCLUDES:
 #A grocery store name of your choice
