@@ -44,6 +44,25 @@ def to_usd(my_price):
     # take captured identifiers and use them to perform calculations
     #look up items price, assemble a runnning total, add tax 
 
+#ENVIRONMENT SETUP
+import os 
+from dotenv import load_dotenv
+load_dotenv() #loads content of .env file into script's environment
+
+#DATE AND TIME
+#Time Source: https://www.codegrepper.com/code-examples/python/AUTO+GENERATE+TIME+IN+PYTHON+console
+from datetime import datetime
+now = datetime.now() # datetime object containing current date and time
+dt_string = now.strftime("%m/%d/%Y %H:%M") # mm/dd/YY H:M
+
+
+#TAX VARIABLES
+sales_tax = os.getenv("TAX_RATE")  #Best practice: use all caps for .env variable # Reads variable from .env
+tax_location = os.getenv("LOCATION")
+
+sales_tax_percent='{:.1%}'.format(float(sales_tax)) # SOURCE: https://stackoverflow.com/questions/5306756/how-to-print-a-percentage-value-in-python
+#print(sales_tax_percent)
+
 
 #CHECKPOINT 1: CAPTURING USER INPUTS
 
@@ -55,53 +74,31 @@ purchased_products = [] # place to store inputs in list #okay to contain duplica
 #print(type(purchased_products))
 subtotal_price = 0 # has to be defined before loop in order to add prices 
 
-#Time Source: https://www.codegrepper.com/code-examples/python/AUTO+GENERATE+TIME+IN+PYTHON+console
-from datetime import datetime
-# datetime object containing current date and time
-now = datetime.now()
-# mm/dd/YY H:M
-dt_string = now.strftime("%m/%d/%Y %H:%M")
-
-#Environment
-import os 
-from dotenv import load_dotenv
-load_dotenv() #loads content of .env file into script's environment
-sales_tax = os.getenv("TAX_RATE")  #Best practice: use all caps for .env variable # Reads variable from .env
-tax_location = os.getenv("STATE")
-
-sales_tax_percent='{:.1%}'.format(float(sales_tax))
-print(sales_tax_percent)
-
-
-
+#INTRO
 print("Welcome to NAME HERE!")
 print("-------------------------------")
 print("Select a product identifier to add it to your cart.")
 print("When you are ready to checkout, type 'DONE.'")
 print("-------------------------------")
 while True:
-    # store results of input in variable: 
     selected_id = input("Please select a product identifier (1-20):") # waits for input before next iteration
-    # ID is the value we want to compare with our list attributes
-    # print(selected_id) # produces a string
-    #print(type(selected_id)) # confirm data type we are working with
-    if selected_id == "DONE": # ADD: CONVERT TO LOWERCASE
+        # ID is the value we want to compare with our list attributes
+        # print(selected_id) # produces a string
+        #print(type(selected_id)) # confirm data type we are working with
+    if selected_id == "DONE": 
         break #stops generating the request
-    #CHECKPOINT 2: LOOK-UP PRODUCTS
     else:
-        purchased_products.append(selected_id)
+        purchased_products.append(selected_id) 
 
         
 #INFO DISPLAY/OUTPUTS
 #CHECKPOINT 3: PRINTING THE RECEIPT
-
-#print("You have purchased", len(purchased_products), "products...") #count number of inputs #COMMENT OUT
 print("-------------------------------")
 print("STORE NAME AND ADDRESS HERE")
 print("THANK YOU FOR SHOPPING WITH US!")
 print(dt_string)	
 print("-------------------------------")
-for selected_id in purchased_products:
+for selected_id in purchased_products: #CHECKPOINT 2: LOOK-UP PRODUCTS
     selected_products = [p for p in products if str(p["id"]) == str(selected_id)]
     selected_product = selected_products[0]
     subtotal_price = subtotal_price + selected_product["price"]   # accumulate value of total price

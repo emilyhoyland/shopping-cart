@@ -23,14 +23,12 @@ conda create -n shopping-cart python=3.8
 conda activate shopping-cart
 ```
 
-After activating the virtual environment, install package dependencies (see the ["requirements.txt"](/requirements.txt) file):
+## Setup
 
-```sh
-pip install -r requirements.txt
-```
+In order to use the application in your local store, we will need to set up an environment to calculate local sales tax in the checkout process. In the root directory of your local repository, create a new file called ".env", and update the contents of the ".env" file to specify your Location and Local Tax Rate (in decimal form). Make sure to SAVE the ".env" file aftwards:
 
-> NOTE: if this command throws an error like "Could not open requirements file: [Errno 2] No such file or directory", make sure you are running it from the repository's root directory, where the requirements.txt file exists (see the initial `cd` step above).
-
+    LOCATION=NY
+    TAX_RATE=0.08875
 
 ## Usage
 
