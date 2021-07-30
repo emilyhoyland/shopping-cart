@@ -62,6 +62,17 @@ now = datetime.now()
 # mm/dd/YY H:M
 dt_string = now.strftime("%m/%d/%Y %H:%M")
 
+#Environment
+import os 
+from dotenv import load_dotenv
+load_dotenv() #loads content of .env file into script's environment
+sales_tax = os.getenv("TAX_RATE")  #Best practice: use all caps for .env variable # Reads variable from .env
+tax_location = os.getenv("STATE")
+
+sales_tax_percent='{:.1%}'.format(float(sales_tax))
+print(sales_tax_percent)
+
+
 
 print("Welcome to NAME HERE!")
 print("-------------------------------")
@@ -99,10 +110,10 @@ print("-------------------------------")
 print("NUMBER OF ITEMS PURCHASED:", len(purchased_products))
 print("SUBTOTAL: " + to_usd(subtotal_price)) # ADD: FORMAT AS USD
 #add tax: https://www.avalara.com/taxrates/en/state-rates/new-york.html#:~:text=The%20New%20York%20(NY)%20state,be%20as%20high%20as%208.875%25.
-ny_tax = subtotal_price * .08875
-print("NY SALES TAX (8.875%): ", to_usd(ny_tax))
+local_tax = subtotal_price * float(sales_tax)
+print(tax_location + " SALES TAX (" + sales_tax_percent + ")" , to_usd(local_tax))
 print("----")
-total_price = to_usd(subtotal_price + ny_tax)
+total_price = to_usd(subtotal_price + local_tax)
 print("TOTAL: ", total_price)
 print("-------------------------------")
 print("PLEASE COME AGAIN SOON!")
