@@ -60,7 +60,7 @@ dt_string = now.strftime("%m/%d/%Y %H:%M") # mm/dd/YY H:M
 sales_tax = os.getenv("TAX_RATE")  #Best practice: use all caps for .env variable # Reads variable from .env
 tax_location = os.getenv("LOCATION")
 
-sales_tax_percent='{:.1%}'.format(float(sales_tax)) # SOURCE: https://stackoverflow.com/questions/5306756/how-to-print-a-percentage-value-in-python
+sales_tax_percent=str('{:.1%}'.format(float(sales_tax))) # SOURCE: https://stackoverflow.com/questions/5306756/how-to-print-a-percentage-value-in-python
 #print(sales_tax_percent)
 
 
@@ -108,7 +108,7 @@ print("NUMBER OF ITEMS PURCHASED:", len(purchased_products))
 print("SUBTOTAL: " + to_usd(subtotal_price)) # ADD: FORMAT AS USD
 #add tax: https://www.avalara.com/taxrates/en/state-rates/new-york.html#:~:text=The%20New%20York%20(NY)%20state,be%20as%20high%20as%208.875%25.
 local_tax = subtotal_price * float(sales_tax)
-print(tax_location + " SALES TAX (" + sales_tax_percent + ")" , to_usd(local_tax))
+print(tax_location, "SALES TAX (",sales_tax_percent,")" , to_usd(local_tax))
 print("----")
 total_price = to_usd(subtotal_price + local_tax)
 print("TOTAL: ", total_price)
