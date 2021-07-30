@@ -63,6 +63,7 @@ tax_location = os.getenv("LOCATION")
 sales_tax_percent=str('{:.1%}'.format(float(sales_tax))) # SOURCE: https://stackoverflow.com/questions/5306756/how-to-print-a-percentage-value-in-python
 #print(sales_tax_percent)
 
+store_name = "International House of Grocers"
 
 #CHECKPOINT 1: CAPTURING USER INPUTS
 
@@ -75,7 +76,8 @@ purchased_products = [] # place to store inputs in list #okay to contain duplica
 subtotal_price = 0 # has to be defined before loop in order to add prices 
 
 #INTRO
-print("Welcome to NAME HERE!")
+print("-------------------------------")
+print("Welcome to", store_name,"!")
 print("-------------------------------")
 print("Select a product identifier to add it to your cart.")
 print("When you are ready to checkout, type 'DONE.'")
@@ -94,7 +96,12 @@ while True:
 #INFO DISPLAY/OUTPUTS
 #CHECKPOINT 3: PRINTING THE RECEIPT
 print("-------------------------------")
-print("STORE NAME AND ADDRESS HERE")
+print(store_name.upper())
+print("-------------------------------")
+print("1406 Westeros Way")
+print("New York, NY, 10001")
+print("202-555-5565")
+print("-------------------------------")
 print("THANK YOU FOR SHOPPING WITH US!")
 print(dt_string)	
 print("-------------------------------")
@@ -117,8 +124,8 @@ print("PLEASE COME AGAIN SOON!")
 
 
 #RECEIPT INCLUDES:
-#A grocery store name of your choice 
-#A grocery store phone number and/or website URL and/or address of choice
+#**A grocery store name of your choice 
+#**A grocery store phone number and/or website URL and/or address of choice
 #**The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
 #**The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $3.50, etc.)
 #**The total cost of all shopping cart items (i.e. the "subtotal"), formatted as US dollars and cents (e.g. $19.47), calculated as the sum of their prices
