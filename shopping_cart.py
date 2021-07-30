@@ -87,7 +87,8 @@ while True:
         # ID is the value we want to compare with our list attributes
         # print(selected_id) # produces a string
         #print(type(selected_id)) # confirm data type we are working with
-    if selected_id == "DONE": 
+        #WANTED TO PROVIDE ACCEPTABLE RANGE, BUT DID NOT HAVE THE TIME TO WORK WITH INPUTS AS STRINGS AND INTEGERS
+    if selected_id.lower() == "done":
         break #stops generating the request
     else:
         purchased_products.append(selected_id) 
