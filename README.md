@@ -37,6 +37,7 @@ Run the Python script:
 
 ```py
 python shopping_cart.py
+```
 
 Follow commands as instructed.
 
