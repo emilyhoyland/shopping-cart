@@ -25,7 +25,7 @@ conda activate shopping-cart
 
 ## Setup
 
-In order to use the application in your local I.H.O.G., we will need to set up an environment to calculate local sales tax in the checkout process. In the root directory of your local repository, create a new file called ".env", and update the contents of the ".env" file to specify your Location and Local Tax Rate (in decimal form). Make sure to SAVE the ".env" file aftwards:
+In order to use the application in your local I.H.O.G., we will need to set up an environment to calculate local sales tax during the checkout process. In the root directory of your local repository, create a new file called ".env", and update the contents of the ".env" file to specify your Location and Local Tax Rate (in decimal form). Make sure to SAVE the ".env" file aftwards:
 
     LOCATION=NY
     TAX_RATE=0.08875
