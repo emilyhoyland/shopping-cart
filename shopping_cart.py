@@ -62,6 +62,12 @@ now = datetime.now()
 # mm/dd/YY H:M
 dt_string = now.strftime("%m/%d/%Y %H:%M")
 
+
+print("Welcome to NAME HERE!")
+print("-------------------------------")
+print("Select a product identifier to add it to your cart.")
+print("When you are ready to checkout, type 'DONE.'")
+print("-------------------------------")
 while True:
     # store results of input in variable: 
     selected_id = input("Please select a product identifier (1-20):") # waits for input before next iteration
